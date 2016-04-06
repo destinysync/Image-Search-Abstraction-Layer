@@ -1,39 +1,35 @@
-<!DOCTYPE html>
-
-<html>
-
-	<head>
-		<title>Clementine.js - The elegant and lightweight full stack JavaScript boilerplate.</title>
-		
-		<link href="/public/css/main.css" rel="stylesheet" type="text/css">
-	</head>
-
-	<header>
-		<p>Welcome, <span id="display-name"></span>!</p>
-		<a class="menu" href="/profile">Profile</a>
-		<p>|</p>
-		<a class="menu" href="/logout">Logout</a>
-	</header>
-
-	<body>
-		<div class="container">
-			<img src="/public/img/clementine_150.png" />
-			<br />
-			<p class="clementine-text">Clementine.js</p>
-		</div>
-	
-		<div class="container">
-			<p>You have clicked the button <span id="click-nbr"></span> times.</p>
-			<br />
-			<div class="btn-container">
-				<button type="submit" class="btn btn-add">CLICK ME!</button>
-				<button class="btn btn-delete">RESET</button>
-			</div>
-		</div>
-		
-		<script type="text/javascript" src="common/ajax-functions.js"></script>
-		<script type="text/javascript" src="controllers/clickController.client.js"></script>
-		<script type="text/javascript" src="controllers/userController.client.js"></script>
-	</body>
-
+<!doctype html>
+<html lang="en">
+    <head>
+        <title>Image Search Abstraction Layer</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="header">
+                Image Search Abstraction Layer
+            </h1>
+            <blockquote>
+                User stories:
+                <ul>1)  I can get the image URLs, alt text and page urls for a set of images relating to a given search string. </ul>
+                <ul>2) I can paginate through the responses by adding a ?offset=2 parameter to the URL.</ul>
+                <ul>3) WI can get a list of the most recently submitted search strings.</ul>
+            </blockquote>
+            <h3>Example usage:</h3>
+            <code>https://image-search-json.herokuapp.com/api/imagesearch/lolcats%20funny?offset=8<br></code>
+            <code>https://image-search-json.herokuapp.com/api/latest/imagesearch/</code>
+           
+            <h3>Example output:</h3>
+           
+            <code>
+[{"url":"http://data.whicdn.com/images/2570506/large.jpg","snippet":"AHA image","thumbnail":"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcT-4rlsxrku7hK1-CV4RDIwrfbaMPD3mfXNkdKUKoObIX5JWY4cRmAFf73X","context":"http://weheartit.com/entry/2570506"},{"url":"https://s-media-cache-ak0.pinimg.com/236x/c6/b4/9e/c6b49edfbeb9531d974ebb5658f6f1c7.jpg","snippet":"Lolcats - Lolcats n' Funny Cat","thumbnail":"https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcR8gKHsEw2HzrJSnSRwsw9kWEPqtZ_mzkmokHBvC7UTSGOZSIAZR67QMA","context":"https://www.pinterest.com/pin/487585097126570417/"},{"url":"http://data.whicdn.com/images/839564/large.jpg","snippet":"Lolcats 'n' Funny Pictures of","thumbnail":"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcTSOwbuVQYkw-zYj_eS0m1b-BJsTCVnTWKwY4-7ot0HUK8JnWI4dze4RA","context":"http://weheartit.com/entry/group/21932216"},{"url":"http://cdnstatic.visualizeus.com/thumbs/4d/5a/lolcats,love-4d5ae26f0d2519ddd01c256ff7ce9985_h.jpg","snippet":"008/06/funny","thumbnail":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSx0dP2s0fkQjClNO4z-aXcipiNIN7WQLXSwUE13I9uMPcjS-qVuDGVfdA","context":"http://vi.sualize.us/icanhascheezburger_files_wordpress_2008_06_funny_pictures_hug_moment_forever_love_lolcats_picture_n2v.html"},{"url":"http://data.whicdn.com/images/30552485/large.jpg","snippet":"funny, kitten, and lawnmower","thumbnail":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT9UXgQjkCb9deD1Hqc_0ddZN1882K1r1Tf9vYGgqPC8d2AfbRLW0j8dH0u","context":"http://weheartit.com/entry/30552485"},{"url":"https://i.ytimg.com/vi/bWah3r-yEf4/hqdefault.jpg","snippet":"LOLCats in Little Duece Coupe","thumbnail":"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRj-Yump0D7vE5-MCVMn4sGLe4iTFYzZ7oAEQ7kLC2Mf7sf_0p5t16H4GL_","context":"https://www.youtube.com/watch?v=bWah3r-yEf4"},{"url":"https://s-media-cache-ak0.pinimg.com/564x/d2/11/bd/d211bd951889e02dfca6d8c4c1706252.jpg","snippet":"Lolcats Daylight, Funny","thumbnail":"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQ_KVa9rrvldteGkfYvu36bKczi3lIv5UR8XAaU7eT0n4iudMslURQFNNw1","context":"https://www.pinterest.com/pin/257127459949542831/"},{"url":"https://i.ytimg.com/vi/DFq4uDVRTqA/hqdefault.jpg","snippet":"LOLCats in Friday I'm in Love","thumbnail":"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcQBdKpGwQZorJEQSQp7tVZwABqw_1cncIlbg0cHr1-FH2ZZOoj8NX34VGKD","context":"https://www.youtube.com/watch?v=DFq4uDVRTqA"},{"url":"http://data.whicdn.com/images/27681480/large.jpg","snippet":"Lolcats - Funny Pictures of","thumbnail":"https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcQqEGPN2kakwi2OKMsTtpiWCx4nEWvon0meN6PTvBPKRKsKWuqxvhCGXuGa","context":"http://weheartit.com/entry/group/17418752"},{"url":"https://s-media-cache-ak0.pinimg.com/736x/22/42/ab/2242abf4929387368b0a17560abce4e7.jpg","snippet":"Funny Animals, Cats Kittens","thumbnail":"https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcTxdvDPToTLrpdaWimiKdsir6DCVni_1d2Y66cGvny_ckwYEpeKLRKVKVE","context":"https://www.pinterest.com/pin/357754764120558869/"}]
+            </code>
+            <br>
+            <br>
+            <br>
+            <code>
+[{"term":"cutedogs","when":"2016-04-06T15:44:22.269Z"},{"term":"kitty","when":"2016-04-06T15:55:17.673Z"},{"term":"tree","when":"2016-04-06T16:22:58.559Z"},{"term":"lolcats%20cute","when":"2016-04-06T16:30:35.582Z"},{"term":"cutedogs","when":"2016-04-06T15:44:22.269Z"},{"term":"kitty","when":"2016-04-06T15:55:17.673Z"},{"term":"tree","when":"2016-04-06T16:22:58.559Z"},{"term":"lolcats%20cute","when":"2016-04-06T16:30:35.582Z"},{"term":"lolcats%20funny","when":"2016-04-06T16:50:13.416Z"}]
+            </code>
+        </div>
+    </body>
 </html>

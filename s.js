@@ -134,6 +134,10 @@ app.get('/api/latest/imagesearch/', function(req, res) {
     findRecentSearchedTearms(sendRecentTen);
 });
 
+app.get('/', function(req, res) {
+     res.sendFile(process.cwd() + '/public/index.html');
+});
+
 var port = process.env.PORT || 8080;
 app.listen(port, function() {
     console.log('Node.js listening on port ' + port + '...');
