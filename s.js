@@ -8,7 +8,7 @@ var searchType = 'image';
 var queryPrefix = '&q=';
 var query = 'lolcat funny';
 var numPrefix = '&num=';
-var num = 3;
+var num = 5;
 var imgInfoArr = [];
 var resObj = {};
 var startPrefix = '&start=';
@@ -114,7 +114,7 @@ function sendImgInfo() {
 app.get('/api/imagesearch/*', function(req, res) {
     var queryStr = req.url.match(/^\/api\/imagesearch\/(.*)\?offset=.*/i)[1];
     var queryPage = req.url.match(/^\/api\/imagesearch\/.*\?offset=(.*)/i)[1];
-    start = queryPage * 10 + 1;
+    start = Number(queryPage) + 1;
     query = queryStr;
     resObj = res;
     returnimgInfoArr(sendImgInfo);
