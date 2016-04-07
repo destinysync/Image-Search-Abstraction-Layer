@@ -8,11 +8,11 @@ var searchType = 'image';
 var queryPrefix = '&q=';
 var query = 'lolcat funny';
 var numPrefix = '&num=';
-var num = 10;
+var num = 3;
 var imgInfoArr = [];
 var resObj = {};
 var startPrefix = '&start=';
-var start = 2;
+var start = 1;
 var fullURI = baseURI + searchTypePrefix + searchType + queryPrefix + query + numPrefix + num + startPrefix + start;
 
 
@@ -33,7 +33,7 @@ function storeSearchedTerm(searchedTerm) {
                         term: searchedTerm,
                         when: new Date().toISOString()
                     };
-                    searchedTerms.push(newSearchedTerm);
+                    searchedTerms.splice(0,0,newSearchedTerm);
                     db.collection('searchedTermArr').update({
                         _id: 'searchedTerms'
                     }, {
@@ -62,7 +62,6 @@ function findRecentSearchedTearms(callback) {
                 if (err) {
                     console.log('Data Not Found');
                 } else {
-                    console.log(data[0]);
                     var searchedTermArr = data[0]['searchedTerms'];
                     var num = 0;
                     if (searchedTermArr.length > 10) {
@@ -109,7 +108,6 @@ function returnimgInfoArr(callback) {
 }
 
 function sendImgInfo() {
-    console.log(fullURI);
     resObj.json(imgInfoArr);
 }
 
@@ -119,7 +117,6 @@ app.get('/api/imagesearch/*', function(req, res) {
     start = queryPage * 10 + 1;
     query = queryStr;
     resObj = res;
-    console.log('get' + start);
     returnimgInfoArr(sendImgInfo);
 });
 
